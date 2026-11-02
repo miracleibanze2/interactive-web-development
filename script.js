@@ -688,14 +688,13 @@ function renderAssignment() {
       article.id = `question-${number}`;
 
       const heading = createElement("h2", "question", `${number}. ${exercise.question}`);
-      const answer = createElement("p", "answer", exercise.answer);
-      const codeLabel = createElement("p", "code-label", "Solution");
+      const codeLabel = createElement("p", "code-label", "Answer");
       const pre = document.createElement("pre");
       const code = document.createElement("code");
       code.textContent = exercise.code;
       pre.append(code);
 
-      article.append(heading, answer, codeLabel, pre);
+      article.append(heading, codeLabel, pre);
       if (exercise.demo) article.append(createDemo(exercise.demo));
       section.append(article);
     });
