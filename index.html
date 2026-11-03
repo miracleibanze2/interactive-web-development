@@ -8,7 +8,289 @@
       content="Individual Assignment #2 solutions for Interactive Web Development."
     />
     <title>Individual Assignment #2 | Interactive Web Development</title>
-    <link rel="stylesheet" href="./style.css" />
+    <styles>
+      :root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #17251d;
+  background: #f3f6f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink-muted: #526357;
+  --green: #23804d;
+  --green-dark: #143c2b;
+  --green-soft: #e4f2e8;
+  --border: #d9e3da;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #f3f6f1;
+}
+
+.page-header {
+  padding: 3.5rem max(1.25rem, calc((100% - 1040px) / 2)) 3.25rem;
+  border-bottom: 5px solid #6fbd86;
+  color: #fff;
+  background: var(--green-dark);
+}
+
+.course-label,
+.topic-title,
+.code-label,
+.demo-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.course-label {
+  display: inline-block;
+  padding: 0.45rem 0.65rem;
+  color: #d5efdc;
+  background: #22563b;
+}
+
+.page-header h1 {
+  max-width: 900px;
+  margin: 1.15rem 0 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.page-header h1 strong {
+  color: #a9e3b8;
+}
+
+.registration {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid #7da88a;
+  color: #fff;
+  font-size: 0.58em;
+  letter-spacing: 0.025em;
+  vertical-align: 0.14em;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 1.1rem 0 0;
+  color: #d2e3d6;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+#assignment {
+  width: min(100% - 2rem, 1040px);
+  margin: 2rem auto 4rem;
+}
+
+.topic {
+  margin-bottom: 2.8rem;
+}
+
+.topic-title {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 5px solid var(--green);
+  color: var(--green-dark);
+  background: #e4eee5;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.exercise {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding: clamp(1.1rem, 3vw, 1.55rem);
+  border: 1px solid var(--border);
+  border-left: 3px solid #b5caba;
+  background: #fff;
+  box-shadow: 0 3px 10px rgb(30 61 39 / 4%);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.exercise:hover {
+  border-left-color: var(--green);
+  box-shadow: 0 6px 18px rgb(30 61 39 / 9%);
+}
+
+.question {
+  margin: 0 0 1rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.code-label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.5rem;
+  color: var(--green);
+  font-size: 0.7rem;
+}
+
+.code-label::before {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: #55a66d;
+  content: "";
+}
+
+pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border-left: 3px solid #72b785;
+  background: #f1f6f1;
+  color: #23392a;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #d5e5d7;
+  border-left: 3px solid #72b785;
+  background: #f8fbf7;
+}
+
+.demo-label {
+  flex-basis: 100%;
+  color: #587261;
+  font-size: 0.66rem;
+}
+
+.demo-message,
+.demo-output {
+  flex-basis: 100%;
+  margin: 0;
+  color: #374b3d;
+  line-height: 1.55;
+}
+
+.demo-output:empty {
+  display: none;
+}
+
+.demo-button {
+  min-height: 2.55rem;
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-bottom: 3px solid #175b35;
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    transform 120ms ease;
+}
+
+.demo-button:hover {
+  transform: translateY(-1px);
+  background: #17653a;
+}
+
+.demo-button:focus-visible,
+.demo input:focus-visible {
+  outline: 3px solid #8bc99b;
+  outline-offset: 2px;
+}
+
+.highlight {
+  padding: 0.5rem;
+  background: #e2f2c8;
+  color: #294d20;
+}
+
+.demo-form {
+  display: grid;
+  width: 100%;
+  max-width: 420px;
+  gap: 0.75rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.35rem;
+  color: #374b3d;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.demo input {
+  min-height: 2.6rem;
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #b9cbbd;
+  background: #fff;
+  color: #17251d;
+  font: inherit;
+}
+
+.demo-form .demo-button {
+  justify-self: start;
+}
+
+.demo-form .demo-output {
+  min-height: 1.5rem;
+}
+
+.demo-output.error {
+  color: #b42318;
+}
+
+table {
+  border-collapse: collapse;
+  background: #fff;
+}
+
+td {
+  width: 3rem;
+  height: 2.5rem;
+  border: 1px solid #aebfae;
+  text-align: center;
+}
+
+footer {
+  padding: 1.4rem 1rem;
+  border-top: 1px solid var(--border);
+  color: #587261;
+  background: #eaf0e9;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 0;
+}
+    </styles>
     <script src="./script.js" defer></script>
   </head>
   <body>
